@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react'
 import './App.css';
+import axios from 'axios'
 
 function App() {
+
+  const [items, setItems] = useState([])
+
+  useEffect(() => {
+    axios.get('http://localhost:5050/api/items', {withCredentials: true})
+    .then((response) => {
+        console.log('response: ', response.data)
+        setItems(response.data)
+    })
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Ecommerce front</h1>
+      {
+        items.map((item, i) => {
+          return <h2 key={i}>{item.name}</h2>
+        })
+      }
     </div>
   );
 }
