@@ -1,0 +1,14 @@
+.navBarBarDiv {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbarbar-foto {
+    height: 50px;
+}
+
+.navTitle {
+    color: rgb(16, 17, 66);
+    text-decoration: 'none';
+}
