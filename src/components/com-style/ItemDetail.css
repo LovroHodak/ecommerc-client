@@ -1,0 +1,64 @@
+.itemDetailDiv{
+    border: 2px solid black;
+    margin: 10px;
+}
+
+.itemCard {
+    display: flex;
+}
+
+.singleFotoDiv {
+    width: 50%;
+    /* border: 2px solid black; */
+}
+
+.singleItemFoto {
+    width: 100%;
+    /* border: 2px solid black; */
+}
+
+.itemGeneral {
+    width: 50%;
+    /* border: 2px solid black; */
+}
+
+.itemGeneral > p {
+    font-size: 20px;
+    padding: 10px;
+}
+
+/* .itemDescription{
+    border: 2px solid black;
+    
+} */
+
+.itemDescription > p {
+    font-size: 20px;
+    padding: 10px;
+}
+
+/* .itemTitle{
+    border: 2px solid black;
+} */
+
+.itemButton {
+    font-size: 30px;
+    border-radius: 7px;
+    margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .itemCard {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
+@media only screen and (max-width: 500px) {
+    .itemDescription > p {
+        font-size: 15px;
+    }
+
+  }

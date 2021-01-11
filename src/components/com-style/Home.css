@@ -18,13 +18,13 @@
     height: 50%;
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1218px) {
   .homeDiv {
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   }
 }
 
-@media only screen and (min-width: 1500px) {
+@media only screen and (min-width: 1518px) {
   .homeDiv {
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   }
