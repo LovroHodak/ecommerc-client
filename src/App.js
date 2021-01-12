@@ -6,9 +6,17 @@ import { Switch, Route, withRouter } from "react-router-dom";
 import NavBarBar from "./components/NavBarBar";
 import ItemDetail from "./components/ItemDetail";
 import Info from "./components/Info";
+import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
   const [items, setItems] = useState([]);
+  const [basketItems, setBasketItems] = useState([]);
+  /* const [total, setTotal] = useState(0) */
+
+/*   basketItems.reduce(function (accumulator, currentValue){
+    return accumulator + currentValue.price
+  });
+ */
 
   useEffect(() => {
     axios
@@ -20,26 +28,9 @@ function App() {
       });
   }, []);
 
-  const handleEdit = (item) => {
-    axios.patch(`http://localhost:5050/api/items/${item._id}`,{
-      nrOfItems: item.nrOfItems
-    })
-    .then(() => {
-      let updatedItems = items.map((myItem) => {
-        if(myItem._id == item._id){
-          myItem = item
-        }
-        return myItem
-      })
-      setItems(updatedItems)
-      console.log('clicked', updatedItems)
-    })
-  }
-
-
   return (
     <div className="App">
-      <NavBarBar />
+      <NavBarBar basketItems={basketItems} />
       <Switch>
         <Route
           exact
@@ -52,7 +43,13 @@ function App() {
           exact
           path="/items/:itemId"
           render={(routeProps) => {
-            return <ItemDetail handleEdit={handleEdit} {...routeProps} />;
+            return (
+              <ItemDetail
+                {...routeProps}
+                basketItems={basketItems}
+                setBasketItems={setBasketItems}
+              />
+            );
           }}
         />
         <Route
@@ -60,6 +57,13 @@ function App() {
           path="/info"
           render={() => {
             return <Info />;
+          }}
+        />
+        <Route
+          exact
+          path="/shoppingCart"
+          render={() => {
+            return <ShoppingCart basketItems={basketItems}/>;
           }}
         />
       </Switch>

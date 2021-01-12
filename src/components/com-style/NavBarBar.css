@@ -12,3 +12,13 @@
     color: rgb(16, 17, 66);
     text-decoration: 'none';
 }
+
+.state {
+    display: flex;
+}
+
+.state > h3 {
+    font-size: 30px;
+    margin-top: 0;
+    text-decoration: 'none';
+}

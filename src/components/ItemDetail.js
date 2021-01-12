@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 export default function ItemDetail(props) {
   const [item, setItem] = useState({});
-  
 
   useEffect(() => {
     let thatId = props.match.params.itemId;
@@ -16,20 +15,10 @@ export default function ItemDetail(props) {
     });
   }, []);
 
-  const itemStock = () => {
-    setItem({
-      _id: item._id, 
-      name: item.name, 
-      price: item.price, 
-      image: item.image,
-      nrOfItems: item.nrOfItems - 1, 
-      category: item.category,
-      description: item.description
-    })
-    console.log('hereeeee', item)
+  const addToBasket = () => {
+    props.setBasketItems([item, ...props.basketItems])
   }
-
-
+    
 
   return (
     <div className="itemDetailDiv">
@@ -44,14 +33,16 @@ export default function ItemDetail(props) {
         </div>
         <div className="itemGeneral">
           <div className="itemDescription">
-            <p><b>Description: </b>{item.description}</p>
+            <p>
+              <b>Description: </b>
+              {item.description}
+            </p>
           </div>
-          <p style={{fontSize: '40px'}} >Price: <b>{item.price} </b>€</p>
+          <p style={{ fontSize: "40px" }}>
+            Price: <b>{item.price} </b>€
+          </p>
           <p>Category: {item.category}</p>
-          <p>Stock: {item.nrOfItems}</p>
-          <button onClick={itemStock} className='itemButton'>ADD TO BASKET</button>
-          <button onClick={() => itemStock(props.handleEdit(item))} className='itemButton'>dataBase</button>
-          <button onClick={() => props.handleEdit(item)} className='itemButton'>app</button>
+          <button onClick={addToBasket} className="itemButton">ADD TO BASKET</button>
         </div>
       </div>
     </div>

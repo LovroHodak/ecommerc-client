@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./com-style/NavBarBar.css";
 
-export default function NavBarBar() {
+export default function NavBarBar(props) {
   return (
     <div>
       <div className="navBarBarDiv">
@@ -16,12 +16,15 @@ export default function NavBarBar() {
         <Link to='/'>
         <h1 className="navTitle">Grinders by Miha</h1>
         </Link>
-        <Link to='/'>
-          <img
-            className="navbarbar-foto"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAACjCAMAAAA3vsLfAAAAe1BMVEX///8AAADp6enh4eH4+PhTU1PGxsYiIiL09PTe3t7v7+92dnb5+fmUlJS/v7/Ly8uxsbGHh4cTExM2NjalpaXZ2dkaGhpKSkqnp6eenp4vLy94eHgJCQmOjo7R0dFra2thYWE9PT2AgIBFRUVISEhubm4oKCgtLS25ubnd6iN3AAAEpElEQVR4nO2d23qiMBRGQRQViwdUPFVFrY7v/4TTdjozIElNk8ifHfe66lW+ZBUT+Ek2QcAwDMMwDMMwDMMwDMP8lHksI0J3zV0m4Xes0N1zk/avb62FYQfdQydZ3LEWhhN0Fx0kvmstDBN0J91joKBtie6ke3QUtPHsVkNFW/iC7qVzpCra+uheOkdLRdsY3Uv3mClo41uQOqv72nhNEBBNDt06WUlb1mqcNtqKJjuVSe+BrGneLfbA2qhODV20tnCPVqDDBm0tDHdoBxqM0dLC8Ih2oMEcLY3m7PaClkZTm0KAydoEfP+OgbVJGKKt0dSmFI6wtho5a9OhYG06KERKrK0OOgQhqi1hbVpMWZsO6BCEqDZ0CEJUGzoEIaoNHYIQ1YYOQahqA4cgVLWBQxCq2sAhCFVtwStr0wEbgpDVhg1ByGobsTYd2qxNC2gIQlcbNAShqw0agtDV1mdtWrA2LU6sTYcta9MBGYIQ1oYMQQhrQ4YglLXtWZsOwBCEsjZgCEJZG/A4DGVtwBCEtDZcCEJaGy4EIa0NF4KQ1oYLQWhrg+0Eoa0NFoLQ1gYLQWhrg4UgtLXBzn8T14YKQYhrQ4UgBXrgZqCOw9AsBfIPVAhCtfTMXzAhyAg9bFOOAGkZeWuNhyCn83aIHrMFGgpBup1jet15VFn6sbbe9uky7ntYp1ap8udPORSb1XhHtlSbAjZDkG7nvB3HfY9t/cNCCJJNi8lquGs9UzVag/Pfl9MgXY58nLkU+HFNkNdTMVle58kz/BblKIcgeWeTjuOoh+6wGyzv6ZruJ7N495w/RTmyEGTaOb7fRETP/VOUcxOC5Itiuxz2k2daFrVYl6QN0J2hQzkEOaA7Q4dKCMLrpCqVEIRiQVwQZW388StlyiHIBt0ZOpS/BFCgO0OGykdj+A5Ekerp7yu6O1Solu3hhwM1qnnbFt0dKlQvNs451Kg+yBet6CF49+zRUEGytV9LTXOVZL26s2lwf5tPH3C7951hm/izlaHRYzD+pATXJrWd0aO1RqPbtPxZFBqtWjxDj9Yehwa1efQE0uDlRnxzeJXGygz4s45+khwv74PKsw9yuwVVvhp9/yvbz9HjfATx9pCHr+vzuBe8tO0QBMPjNAuz6ebqaYY3Ojzgt3T9fwru1cvviVfrM+R2FrzqluCTfxdcbc+zhWmod7lpM/Po7uMTwa5A8yHWCxFe/LreZoIVcGraqOhEUmHeV3cQn/AznMIjYaM+7S5JhSPMzRoV7wZe2OmxE0jORRpdGbJq5f6sCrLKDKlJo7LnNX/u3mQj3Js0KlpljP8XTiGLKU8mjYrnS59iSpk2oy28Mm3+hOKxZISFSaOyl4j+/Ehlb66M3mnKzgx6FIpLzqnFJm3K3vT78540GIhHaHZi6E3Y5sVSl11A/BxkuMtNPGP6c9sWSIqhmh5PExUhXFvprjOs6yM0rm4imt08mtk+qA/Rwpu5+ntEo0XGRZKbx3krG/iim3dgPr64Ku+oXPTttNkur9GFP+FHmST9uuIGFos2RZM/LxTyo4+X2he9aDS3fk0k0bOWu2AYhmEYhmEYhmEYhrHMb31hTcIPiJKmAAAAAElFTkSuQmCC"
-            alt="cart-logo"
-          />
+        <Link to='/shoppingCart'>
+          <div className='state'>
+            <img
+              className="navbarbar-foto"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAACjCAMAAAA3vsLfAAAAe1BMVEX///8AAADp6enh4eH4+PhTU1PGxsYiIiL09PTe3t7v7+92dnb5+fmUlJS/v7/Ly8uxsbGHh4cTExM2NjalpaXZ2dkaGhpKSkqnp6eenp4vLy94eHgJCQmOjo7R0dFra2thYWE9PT2AgIBFRUVISEhubm4oKCgtLS25ubnd6iN3AAAEpElEQVR4nO2d23qiMBRGQRQViwdUPFVFrY7v/4TTdjozIElNk8ifHfe66lW+ZBUT+Ek2QcAwDMMwDMMwDMMwDMP8lHksI0J3zV0m4Xes0N1zk/avb62FYQfdQydZ3LEWhhN0Fx0kvmstDBN0J91joKBtie6ke3QUtPHsVkNFW/iC7qVzpCra+uheOkdLRdsY3Uv3mClo41uQOqv72nhNEBBNDt06WUlb1mqcNtqKJjuVSe+BrGneLfbA2qhODV20tnCPVqDDBm0tDHdoBxqM0dLC8Ih2oMEcLY3m7PaClkZTm0KAydoEfP+OgbVJGKKt0dSmFI6wtho5a9OhYG06KERKrK0OOgQhqi1hbVpMWZsO6BCEqDZ0CEJUGzoEIaoNHYIQ1YYOQahqA4cgVLWBQxCq2sAhCFVtwStr0wEbgpDVhg1ByGobsTYd2qxNC2gIQlcbNAShqw0agtDV1mdtWrA2LU6sTYcta9MBGYIQ1oYMQQhrQ4YglLXtWZsOwBCEsjZgCEJZG/A4DGVtwBCEtDZcCEJaGy4EIa0NF4KQ1oYLQWhrg+0Eoa0NFoLQ1gYLQWhrg4UgtLXBzn8T14YKQYhrQ4UgBXrgZqCOw9AsBfIPVAhCtfTMXzAhyAg9bFOOAGkZeWuNhyCn83aIHrMFGgpBup1jet15VFn6sbbe9uky7ntYp1ap8udPORSb1XhHtlSbAjZDkG7nvB3HfY9t/cNCCJJNi8lquGs9UzVag/Pfl9MgXY58nLkU+HFNkNdTMVle58kz/BblKIcgeWeTjuOoh+6wGyzv6ZruJ7N495w/RTmyEGTaOb7fRETP/VOUcxOC5Itiuxz2k2daFrVYl6QN0J2hQzkEOaA7Q4dKCMLrpCqVEIRiQVwQZW388StlyiHIBt0ZOpS/BFCgO0OGykdj+A5Ekerp7yu6O1Solu3hhwM1qnnbFt0dKlQvNs451Kg+yBet6CF49+zRUEGytV9LTXOVZL26s2lwf5tPH3C7951hm/izlaHRYzD+pATXJrWd0aO1RqPbtPxZFBqtWjxDj9Yehwa1efQE0uDlRnxzeJXGygz4s45+khwv74PKsw9yuwVVvhp9/yvbz9HjfATx9pCHr+vzuBe8tO0QBMPjNAuz6ebqaYY3Ojzgt3T9fwru1cvviVfrM+R2FrzqluCTfxdcbc+zhWmod7lpM/Po7uMTwa5A8yHWCxFe/LreZoIVcGraqOhEUmHeV3cQn/AznMIjYaM+7S5JhSPMzRoV7wZe2OmxE0jORRpdGbJq5f6sCrLKDKlJo7LnNX/u3mQj3Js0KlpljP8XTiGLKU8mjYrnS59iSpk2oy28Mm3+hOKxZISFSaOyl4j+/Ehlb66M3mnKzgx6FIpLzqnFJm3K3vT78540GIhHaHZi6E3Y5sVSl11A/BxkuMtNPGP6c9sWSIqhmh5PExUhXFvprjOs6yM0rm4imt08mtk+qA/Rwpu5+ntEo0XGRZKbx3krG/iim3dgPr64Ku+oXPTttNkur9GFP+FHmST9uuIGFos2RZM/LxTyo4+X2he9aDS3fk0k0bOWu2AYhmEYhmEYhmEYhrHMb31hTcIPiJKmAAAAAElFTkSuQmCC"
+              alt="cart-logo"
+            />
+            <h3>{props.basketItems.length}</h3>
+          </div>
         </Link>
       </div>
 
