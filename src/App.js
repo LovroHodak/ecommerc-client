@@ -11,32 +11,40 @@ import ShoppingCart from "./components/ShoppingCart";
 function App() {
   const [items, setItems] = useState([]);
   const [basketItems, setBasketItems] = useState([]);
-  /* const [total, setTotal] = useState(0) */
-
-/*   basketItems.reduce(function (accumulator, currentValue){
-    return accumulator + currentValue.price
-  });
- */
+  const [showButton, setShowButton] = useState(true);
 
   useEffect(() => {
     axios
       .get("http://localhost:5050/api/items", { withCredentials: true })
       .then((response) => {
-        console.log(response.data);
-        console.log(response.data[0].name);
         setItems(response.data);
       });
   }, []);
 
+  const addToBasketChangeState = (id) => {
+    const newList = items.map((item) => {
+      if(item.id === id){
+        const updatedItem = {
+          ...item,
+          nrOfItems: item.nrOfItems - 1
+        }
+        return updatedItem
+      }
+      return item
+    })
+    setItems(newList)
+  }
+
   return (
     <div className="App">
       <NavBarBar basketItems={basketItems} />
+
       <Switch>
         <Route
           exact
           path="/"
           render={() => {
-            return <Home items={items} setItems={setItems} />;
+            return <Home items={items} />;
           }}
         />
         <Route
@@ -47,7 +55,10 @@ function App() {
               <ItemDetail
                 {...routeProps}
                 basketItems={basketItems}
+                showButton={showButton}
+                setShowButton={setShowButton}
                 setBasketItems={setBasketItems}
+                addToBasketChangeState={addToBasketChangeState}
               />
             );
           }}
@@ -63,7 +74,12 @@ function App() {
           exact
           path="/shoppingCart"
           render={() => {
-            return <ShoppingCart basketItems={basketItems}/>;
+            return (
+              <ShoppingCart
+                basketItems={basketItems}
+                setBasketItems={setBasketItems}
+              />
+            );
           }}
         />
       </Switch>

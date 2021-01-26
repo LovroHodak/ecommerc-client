@@ -22,7 +22,7 @@ export default function Home({ items }) {
               <p style={{ fontSize: "20px", color: "black" }}>
                 Price: <b>{item.price}</b> €
               </p>
-              <p>Type: {item.category}</p>
+              <p>Stock: {item.nrOfItems}</p>
             </div>
           </Link>
         );
